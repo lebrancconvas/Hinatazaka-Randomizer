@@ -1,2 +1,117 @@
-<h1>Welcome to SvelteKit</h1>
-<p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
+<script lang="ts">
+  import Hinata from '../data/hinatazaka.json';
+  let name = Hinata[0].name;
+  let image = Hinata[0].imgURL;
+  const random = () => {
+    // alert("This feature is not available yet.");
+    const random = Math.floor(Math.random() * Hinata.length);
+    name = Hinata[random].name;
+    image = Hinata[random].imgURL;
+  };
+</script>
+
+<svelte:head>
+  <title>Hi-Sa-No Randomizer</title>
+</svelte:head>
+
+<main>
+  <header>
+    <div>
+      <h1>Hi Sa No Randomizer</h1>
+    </div>
+    <div>
+      <h2>Random Member from 46 Group in Card Form</h2>
+    </div>
+  </header>
+  <div id="card-section">
+    <div id="card">
+      <div id="card-image">
+        <img src={image} alt={name}>
+      </div>
+      <div id="card-title">
+        <h2>{name}</h2>
+      </div>
+    </div>
+  </div>
+  <div id="action-section">
+    <button id="random-button" on:click={random}>Random !</button>
+  </div>
+  <footer>
+    <div>
+      <p>Copyright 2023, Made by <a href="https://github.com/lebrancconvas" target="_blank">Poom Yimyuean (lebrancconvas)</a></p>
+    </div>
+  </footer>
+</main>
+
+<style lang="css" scoped>
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Noto Sans JP', sans-serif;
+  }
+
+  header, footer {
+    text-align: center;
+  }
+
+
+  #card {
+    outline: 2px solid black;
+    margin: 0 auto;
+    margin-top: 50px;
+    padding: 7px;
+    position: relative;
+    width: 27%;
+    height: 50vh;
+    text-align: center;
+  }
+
+  #card-image {
+    width: 100%;
+  }
+
+  img {
+    width: 300px;
+  }
+
+  #card-title {
+    margin-top: 10px;
+    font-size: 20px;
+  }
+
+  button {
+    outline: none;
+    border: none;
+    border-radius: 7px;
+    cursor: pointer;
+  }
+
+  button:active {
+    transform: scale(0.97);
+  }
+
+  #action-section {
+    /* outline: 2px solid black; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #random-button {
+    width: 10%;
+    height: 50px;
+    margin-top: 50px;
+    background-color: #16cd7b;
+    font-size: 18px;
+  }
+
+
+  footer {
+    position: fixed;
+    bottom: 0;
+    text-align: center;
+    width: 100%;
+    height: 50px;
+  }
+</style>
