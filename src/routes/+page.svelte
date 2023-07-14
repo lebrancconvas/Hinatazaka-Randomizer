@@ -1,5 +1,6 @@
 <script lang="ts">
   import Hinata from '../data/hinatazaka.json';
+  import Card from '../lib/card.svelte';
   let name = Hinata[0].name;
   let image = Hinata[0].imgURL;
   const random = () => {
@@ -24,14 +25,7 @@
     </div>
   </header>
   <div id="card-section">
-    <div id="card">
-      <div id="card-image">
-        <img src={image} alt={name}>
-      </div>
-      <div id="card-title">
-        <h2>{name}</h2>
-      </div>
-    </div>
+    <Card name={name} image={image} />
   </div>
   <div id="action-section">
     <button id="random-button" on:click={random}>Random !</button>
@@ -55,30 +49,6 @@
     text-align: center;
   }
 
-
-  #card {
-    outline: 2px solid black;
-    margin: 0 auto;
-    margin-top: 50px;
-    padding: 7px;
-    position: relative;
-    width: 27%;
-    height: 50vh;
-    text-align: center;
-  }
-
-  #card-image {
-    width: 100%;
-  }
-
-  img {
-    width: 300px;
-  }
-
-  #card-title {
-    margin-top: 10px;
-    font-size: 20px;
-  }
 
   button {
     outline: none;
