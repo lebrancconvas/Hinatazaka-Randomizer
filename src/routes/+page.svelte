@@ -4,7 +4,6 @@
   let name = Hinata[0].name;
   let image = Hinata[0].imgURL;
   const random = () => {
-    // alert("This feature is not available yet.");
     const random = Math.floor(Math.random() * Hinata.length);
     name = Hinata[random].name;
     image = Hinata[random].imgURL;
