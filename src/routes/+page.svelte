@@ -12,16 +12,16 @@
 </script>
 
 <svelte:head>
-  <title>Hi-Sa-No Randomizer</title>
+  <title>Hinatazaka Randomizer</title>
 </svelte:head>
 
 <main>
   <header>
     <div>
-      <h1>Hi Sa No Randomizer</h1>
+      <h1>Hinatazaka Randomizer</h1>
     </div>
     <div>
-      <h2>Random Member from 46 Group in Card Form</h2>
+      <h2>Just a random web that you can random your member from Hinatazaka46</h2>
     </div>
   </header>
   <div id="card-section">
@@ -74,6 +74,7 @@
     margin-top: 50px;
     background-color: #16cd7b;
     font-size: 18px;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
   }
 
 
