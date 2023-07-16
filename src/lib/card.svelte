@@ -5,11 +5,17 @@
 </script>
 
   <div id="card" class={isFlipped ? "spin" : ""}>
-    <div id="card-image">
-      <img src={image} alt={name}>
+    <div class="front">
+      <div id="card-image">
+        <img src={image} alt={name}>
+      </div>
+      <div id="card-title">
+        <h2>{name}</h2>
+      </div>
     </div>
-    <div id="card-title">
-      <h2>{name}</h2>
+    <div class="back">
+      <div id="card-image"></div>
+      <div id="card-title"></div>
     </div>
   </div>
 
@@ -28,6 +34,19 @@
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
     /*  */
     /* backface-visibility: hidden; */
+  }
+
+  .front, .back {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+  }
+
+  .back {
+    transform: rotateY(180deg);
   }
 
   .spin {

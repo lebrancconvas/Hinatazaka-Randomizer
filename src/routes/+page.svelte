@@ -1,4 +1,5 @@
 <script lang="ts">
+  import { onMount } from 'svelte';
   import Hinata from '../data/hinatazaka.json';
   import Card from '../lib/card.svelte';
   let name = Hinata[0].name;
@@ -21,7 +22,11 @@
       }, 1000)
     }
   }
-  console.log(`Image: ${image}`);
+
+  onMount(() => {
+    isFlipped = false;
+    isButtonDisabled = false;
+  });
 </script>
 
 <svelte:head>
@@ -41,7 +46,11 @@
     <Card name={name} image={image} isFlipped={isFlipped} />
   </div>
   <div id="action-section">
-    <button id="random-button" on:click={random} on:click={spin} disabled={isButtonDisabled}>Random !</button>
+    {#if !isButtonDisabled}
+      <button id="random-button" on:click={random} on:click={spin} disabled={isButtonDisabled}>Random !</button>
+    {:else}
+      <button id="random-button-disabled">Random !</button>
+    {/if}
   </div>
   <footer>
     <div>
@@ -88,6 +97,20 @@
     background-color: #16cd7b;
     font-size: 18px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  #random-button-disabled {
+    width: 10%;
+    height: 50px;
+    margin-top: 50px;
+    background-color: #a3a3a3d7;
+    font-size: 18px;
+    cursor: auto;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
+  }
+
+  #random-button-disabled:active {
+    transform: none;
   }
 
 
