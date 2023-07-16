@@ -14,8 +14,7 @@
       </div>
     </div>
     <div class="back">
-      <div id="card-image"></div>
-      <div id="card-title"></div>
+      <img src="https://styles.redditmedia.com/t5_34tyfv/styles/communityIcon_mmb8p9jdcso51.png" alt="Logo">
     </div>
   </div>
 
@@ -32,7 +31,7 @@
     background-color: #5ABFE5;
     border-radius: 8px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    /*  */
+    transform-style: preserve-3d;
     /* backface-visibility: hidden; */
   }
 

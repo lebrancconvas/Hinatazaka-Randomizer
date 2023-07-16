@@ -2,10 +2,12 @@
   import { onMount } from 'svelte';
   import Hinata from '../data/hinatazaka.json';
   import Card from '../lib/card.svelte';
+
   let name = Hinata[0].name;
   let image = Hinata[0].imgURL;
   let isFlipped = false;
   let isButtonDisabled = false;
+
   const random = () => {
     const random = Math.floor(Math.random() * Hinata.length);
     name = Hinata[random].name;
