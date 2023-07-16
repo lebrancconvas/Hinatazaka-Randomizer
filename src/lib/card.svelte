@@ -1,16 +1,17 @@
 <script lang="ts">
   export let name: string;
   export let image: string;
+  export let isFlipped: boolean = false;
 </script>
 
-<div id="card">
-  <div id="card-image">
-    <img src={image} alt={name}>
+  <div id="card" class={isFlipped ? "spin" : ""}>
+    <div id="card-image">
+      <img src={image} alt={name}>
+    </div>
+    <div id="card-title">
+      <h2>{name}</h2>
+    </div>
   </div>
-  <div id="card-title">
-    <h2>{name}</h2>
-  </div>
- </div>
 
  <style lang="css" scoped>
   #card {
@@ -25,8 +26,14 @@
     background-color: #5ABFE5;
     border-radius: 8px;
     box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.5);
-    /* animation: card-rotate 10s ease-in 5; */
+    /*  */
+    /* backface-visibility: hidden; */
   }
+
+  .spin {
+    animation: card-spin 1s ease-in-out 1;
+  }
+
 
   #card-image {
     /* width: 100%; */
@@ -46,13 +53,12 @@
     font-size: 20px;
   }
 
-  @keyframes card-rotate {
+  @keyframes card-spin {
     0% {
-      transform: rotateY(0deg);
+      transform: rotateY(180deg);
     }
-
     100% {
-      transform: rotateY(360deg);
+      transform: rotateY(0deg);
     }
   }
 

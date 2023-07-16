@@ -3,11 +3,25 @@
   import Card from '../lib/card.svelte';
   let name = Hinata[0].name;
   let image = Hinata[0].imgURL;
+  let isFlipped = false;
+  let isButtonDisabled = false;
   const random = () => {
     const random = Math.floor(Math.random() * Hinata.length);
     name = Hinata[random].name;
     image = Hinata[random].imgURL;
   };
+
+  const spin = () => {
+    if(!isFlipped) {
+      isFlipped = true;
+      isButtonDisabled = true;
+      setTimeout(() => {
+        isFlipped = false;
+        isButtonDisabled = false;
+      }, 1000)
+    }
+  }
+  console.log(`Image: ${image}`);
 </script>
 
 <svelte:head>
@@ -24,10 +38,10 @@
     </div>
   </header>
   <div id="card-section">
-    <Card name={name} image={image} />
+    <Card name={name} image={image} isFlipped={isFlipped} />
   </div>
   <div id="action-section">
-    <button id="random-button" on:click={random}>Random !</button>
+    <button id="random-button" on:click={random} on:click={spin} disabled={isButtonDisabled}>Random !</button>
   </div>
   <footer>
     <div>
