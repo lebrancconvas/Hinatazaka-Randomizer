@@ -48,6 +48,11 @@
     transform: rotateY(180deg);
   }
 
+  .back > img {
+    width: 100%;
+    height: 90%;
+  }
+
   .spin {
     animation: card-spin 1s ease-in-out 1;
   }
